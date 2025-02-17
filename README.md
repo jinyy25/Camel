@@ -1,8 +1,8 @@
 # Apache
 
-- Apache Camel
-- Apache Kafka
-- Quartz
+- Apache Camel (Routing, Crypto)
+- Apache Kafka (Producer, Consumer)
+- Quartz (Scheduler)
   
   
 
