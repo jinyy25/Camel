@@ -1,0 +1,29 @@
+agent-type: producer
+spring:
+  jdbc:
+    template:
+      fetch-size: 10000
+      max-rows: 10000
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://10.47.39.125:3306/DB_D_GMD?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC  # MySQL JDBC URL
+    username: GMDMO
+    password: gmdmo
+camel:
+  springboot:
+    main-run-controller: true
+    stream-caching-enabled: true
+    jmx-enabled: false
+    shutdown-timeout: 1
+  component:
+    kafka:
+      max-request-size: 10485760
+#      group-id: camel-simple-${USERDOMAIN_ROAMINGPROFILE}
+      brokers: 10.47.39.124:9092,10.47.39.67:9092,10.47.39.125:9092
+#      brokers: 10.60.180.77:9092,10.60.180.78:9092
+      shutdown-timeout: 1
+      
+logging:
+  level:
+    org.apache.camel.component.sql.DefaultSqlPrepareStatementStrategy: info #쿼리 보고 싶을 경우
+    org.apache.kafka: warn
